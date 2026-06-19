@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tick & Flow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/ipl1iwe.css">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="TFLogo_F2.png">
+    <link rel="apple-touch-icon" href="TFLogo_F2.png">
+
+    <meta property="og:title" content="Tick & Flow">
+    <meta property="og:description" content="時間と連動する新感覚ヒットアンドブローゲーム">
+    <meta property="og:image" content="TFLogo_F2.png">
+    <meta property="og:url" content="https://t0r0m1.github.io/TickAndFlow/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="TFLogo_F2.png">
+</head>
+
+<body>
+
+    <div id="startScreen" class="screen active">
+        <div class="title">
+            <img class="logo light" src="TFLogo_L.svg" alt="Tick & Flow">
+            <img class="logo dark" src="TFLogo_D.svg" alt="Tick & Flow">
+        </div>
+
+        <button id="startBtn">Normal</button>
+        <button id="hardBtn">Hard</button>
+        <button id="lunaticBtn" style="display:none;">LUNATIC</button>
+
+        <div id="credit">toromi 2026</div>
+    </div>
+
+    <div id="gameScreen" class="screen">
+
+        <div class="header">
+            <div class="title">
+                <img class="logo light" src="TFLogo_L.svg" alt="Tick & Flow">
+                <img class="logo dark" src="TFLogo_D.svg" alt="Tick & Flow">
+            </div>
+            <div id="clock"></div>
+        </div>
+
+        <div class="main">
+
+            <div class="left">
+                <div id="output"></div>
+                <div id="subOutput"></div>
+            </div>
+
+            <div class="right">
+                <div id="log"></div>
+            </div>
+
+        </div>
+
+        <div class="footer">
+            <button id="guessBtn">GUESS</button>
+        </div>
+
+    </div>
+
+    <div id="resultScreen" class="screen">
+
+        <div id="crear">CLEAR!</div>
+        <div id="answer"></div>
+        <div id="tries"></div>
+
+        <button id="restartBtn">Play Again</button>
+
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>

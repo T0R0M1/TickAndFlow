@@ -1,0 +1,368 @@
+:root {
+    --bg: #0f1115;
+    --text: #e6e6e6;
+    --panel: #161a22;
+    --border: #2a2f3a;
+    --btn: #363b44;
+    --hit: #5b0ef4;
+    --blow: #50b1a0;
+    --mid-bg: rgba(80, 177, 160, 0.75);
+    --low-bg: rgba(166, 193, 76, 0.55);
+    --high-bg: rgba(91, 14, 244, 0.85);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg: #eeefef;
+        --text: #111111;
+        --panel: #fdfdfd;
+        --btn: #e2e2e2;
+        --mid-bg: rgba(80, 177, 160, 0.40);
+        --low-bg: rgba(166, 193, 76, 0.45);
+        --high-bg: rgba(91, 14, 244, 0.35);
+    }
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100svh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "neue-frutiger-world", sans-serif;
+    overflow: hidden;
+}
+
+.screen {
+    display: none;
+    height: 100svh;
+}
+
+.screen.active {
+    display: grid;
+    grid-template-rows: 60px calc(100svh - 60px - 12svh) 12svh;
+}
+
+/* START */
+
+#startScreen {
+    position: relative;
+}
+
+#startScreen.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#startScreen h1 {
+    font-family: "Gotham", sans-serif;
+}
+
+
+#credit {
+    position: absolute;
+    bottom: 3vh;
+    font-size: 1.8vh;
+    opacity: 0.4;
+    font-family: Gotham;
+    font-weight: 600;
+}
+
+#hardBtn,
+#startBtn,
+#lunaticBtn {
+    width: 80%;
+    height: 7vh;
+    font-size: 4vh;
+    background: var(--btn);
+    color: var(--text);
+    border: none;
+    font-weight: bold;
+    font-family: "Gotham", sans-serif;
+    touch-action: manipulation;
+    border-radius: 1.5vh;
+}
+
+@media (prefers-color-scheme: light) {
+    #lunaticBtn {
+        color: #ffffff;
+        background: #e040fb;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    #lunaticBtn {
+        background: #ffffff;
+        color: #e040fb;
+    }
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 3vh;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    height: 100%;
+    min-height: 0;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1vh;
+    min-height: 0;
+}
+
+#output {
+    font-size: 18vh;
+    height: 24vh;
+}
+
+#subOutput {
+    font-size: 10vh;
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 0;
+}
+
+#log {
+    width: 90%;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden;
+    min-height: 0;
+    /*background: var(--bg);*/
+    border: 0px solid var(--border);
+    border-radius: 8px;
+    padding: 6px;
+}
+
+.logItem {
+    height: calc((100% - 6px * 9) / 10);
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px;
+    border-radius: 1vh;
+    background: var(--panel);
+}
+
+.logItem.low {
+    background: var(--low-bg);
+}
+
+.logItem.mid {
+    background: var(--mid-bg);
+}
+
+.logItem.high {
+    background: var(--high-bg);
+}
+
+.logIndex {
+    width: 70px;
+    text-align: right;
+    font-size: 3.0vh;
+}
+
+.logGuess {
+    flex: 1;
+    text-align: center;
+    font-weight: bold;
+    font-size: 4.5vh;
+}
+
+.logResult {
+    width: 70px;
+    text-align: right;
+    font-size: 3.0vh;
+}
+
+.footer {
+    display: flex;
+    margin-top: 6px;
+}
+
+#guessBtn {
+    width: 100%;
+    height: 100%;
+    font-size: 6vh;
+    background: var(--btn);
+    color: var(--text);
+    border: none;
+    font-weight: bold;
+    font-family: "Gotham", sans-serif;
+    touch-action: manipulation;
+}
+
+#resultScreen.active {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#crear {
+    font-size: 6vh;
+    font-weight: bold;
+    font-family: gotham;
+    height: 7vh;
+}
+
+#answer {
+    font-size: 16vh;
+    font-weight: 700;
+    height: 24vh;
+}
+
+#tries {
+    font-size: 8vh;
+    opacity: 0.85;
+    padding-bottom: 10vh;
+}
+
+#restartBtn {
+    width: 80%;
+    height: 10vh;
+    font-size: 5vh;
+    font-weight: bold;
+    font-family: gotham;
+    background: var(--btn);
+    color: var(--text);
+    border: none;
+    border-radius: 1.5vh;
+}
+
+@media (orientation: portrait) {
+    .main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    .left {
+        justify-content: flex-start;
+        padding-top: 3vh;
+    }
+
+    .header {
+        font-size: 3vh;
+    }
+
+    #output {
+        font-size: 12vh;
+        height: 14vh;
+    }
+
+    #subOutput {
+        font-size: 6vh;
+        padding-bottom: 2vh;
+    }
+
+    .right {
+        align-items: stretch;
+    }
+
+    .logIndex {
+        font-size: 2.4vh;
+    }
+
+    .logGuess {
+        font-size: 3.2vh;
+    }
+
+    .logResult {
+        font-size: 2.4vh;
+    }
+
+    #guessBtn {
+        font-size: 5vh;
+    }
+}
+
+@media (orientation: landscape) {
+    .left {
+        justify-content: center;
+        padding-top: 0;
+    }
+}
+
+.logo {
+    height: 13vh;
+    width: auto;
+    display: block;
+    padding-top: 3vh;
+    padding-left: 0vh;
+}
+
+#startScreen .logo {
+    height: 240px;
+    width: auto;
+}
+
+@media (prefers-color-scheme: dark) {
+    .logo.light {
+        display: none;
+    }
+
+    .logo.dark {
+        display: block;
+    }
+
+    #output,
+    .logGuess {
+        font-weight: 600;
+    }
+
+    .logIndex,
+    .logResult {
+        font-weight: 400;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .logo.light {
+        display: block;
+    }
+
+    .logo.dark {
+        display: none;
+    }
+
+    #output,
+    .logGuess {
+        font-weight: 700;
+    }
+
+    .logIndex,
+    .logResult {
+        font-weight: 500;
+    }
+}
+
+.header .title {
+    display: flex;
+    align-items: center;
+}
